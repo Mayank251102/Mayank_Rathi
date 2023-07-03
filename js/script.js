@@ -1,7 +1,7 @@
  /* Typing Animation */
 
  var typed = new Typed(".typing",{
-    strings:["Graphic Designer","Web Designer","Web developer"],
+    strings:["Graphic Designer","Web Designer","Web Developer"],
     typeSpeed: 100,
     BackSpeed: 60,
     loop: true
@@ -46,6 +46,15 @@
       }
  }
 
+ window.onload = function() {
+   const nav = document.querySelector(".nav");
+   const activeSection = document.querySelector(".active");
+   if (activeSection) {
+     const activeNavLink = nav.querySelector("a[href='#home" + activeSection.id + "']");
+     activeNavLink.classList.add("active");
+   }
+ };
+
  function showSection(element)
  {
    for (let i = 1; i < totalSection; i++){
@@ -75,6 +84,22 @@
  })
 
  document.querySelector(".about #hire").addEventListener("click", function(){
+   const sectionIndex = this.getAttribute("data-section-index")
+   showSection(this);
+   updateNav(this);
+   removeBackSection();
+   addBackSection(sectionIndex);
+ })
+
+ document.querySelector(".portfolio #hire").addEventListener("click", function(){
+  const sectionIndex = this.getAttribute("data-section-index")
+  showSection(this);
+  updateNav(this);
+  removeBackSection();
+  addBackSection(sectionIndex);
+})
+
+ document.querySelector(".contact .contact-form .form-item #hire").addEventListener("click", function(){
    const sectionIndex = this.getAttribute("data-section-index")
    showSection(this);
    updateNav(this);
