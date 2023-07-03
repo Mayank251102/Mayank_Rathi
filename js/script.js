@@ -75,6 +75,19 @@
    }
  }
 
+ const navTogglerBtn = document.querySelector(".nav-toggler"),
+aside = document.querySelector(".aside");
+navTogglerBtn.addEventListener("click", () => {
+  asideSectionTogglerBtn();
+})
+function asideSectionTogglerBtn() {
+  aside.classList.toggle("open");
+  navTogglerBtn.classList.toggle("open")
+  for(let i=0; i < totalSection; i++) {
+     allSection[i].classList.toggle("open");
+  }
+}
+
  document.querySelector(".home #hire").addEventListener("click", function(){
    const sectionIndex = this.getAttribute("data-section-index")
    showSection(this);
@@ -84,14 +97,6 @@
  })
 
  document.querySelector(".about #hire").addEventListener("click", function(){
-   const sectionIndex = this.getAttribute("data-section-index")
-   showSection(this);
-   updateNav(this);
-   removeBackSection();
-   addBackSection(sectionIndex);
- })
-
- document.querySelector(".portfolio #hire").addEventListener("click", function(){
   const sectionIndex = this.getAttribute("data-section-index")
   showSection(this);
   updateNav(this);
@@ -99,26 +104,23 @@
   addBackSection(sectionIndex);
 })
 
- document.querySelector(".contact .contact-form .form-item #hire").addEventListener("click", function(){
-   const sectionIndex = this.getAttribute("data-section-index")
-   showSection(this);
-   updateNav(this);
-   removeBackSection();
-   addBackSection(sectionIndex);
- })
+document.querySelector(".portfolio #hire").addEventListener("click", function(){
+ const sectionIndex = this.getAttribute("data-section-index")
+ showSection(this);
+ updateNav(this);
+ removeBackSection();
+ addBackSection(sectionIndex);
+})
 
- const navTogglerBtn = document.querySelector(".nav-toggler"),
- aside = document.querySelector(".aside");
- navTogglerBtn.addEventListener("click", () => {
-   asideSectionTogglerBtn();
- })
- function asideSectionTogglerBtn() {
-   aside.classList.toggle("open");
-   navTogglerBtn.classList.toggle("open")
-   for(let i=0; i < totalSection; i++) {
-      allSection[i].classList.toggle("open");
-   }
- }
+document.querySelector(".contact .contact-form .form-item #hire").addEventListener("click", function(){
+  const sectionIndex = this.getAttribute("data-section-index")
+  showSection(this);
+  updateNav(this);
+  removeBackSection();
+  addBackSection(sectionIndex);
+})
+
+
 
  /* Data Can't Be Copied*/
 
